@@ -27,20 +27,21 @@ function Traverse() {
   const { code } = useParams();
 
   useEffect(() => {
-    // Let the browser handle the redirect natively — no fetch, no CORS issue
-    window.location.href = `${import.meta.env.VITE_API_BASE_URL}/api/show/${code}`;
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/show/${code}`)
+      .then(res => {
+        if (!res.ok) throw new Error("Not found");
+        return res.json(); // or res.text()
+      })
+      .then(url => {
+        window.location.href = url;
+      })
+      .catch(() => {
+        window.location.href = "/404"; // or show error
+      });
   }, [code]);
 
-  return (
-    <div
-      className="min-h-screen w-full flex items-center justify-center"
-      style={{ backgroundColor: "#FCF2E5" }}
-    >
-      <p className="text-sm" style={{ color: "#A8A492" }}>Redirecting...</p>
-    </div>
-  );
+  return <div>Redirecting...</div>;
 }
-
 
 function App() {
    useEffect(() => {
