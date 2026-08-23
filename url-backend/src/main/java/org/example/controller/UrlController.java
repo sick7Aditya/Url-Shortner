@@ -44,7 +44,7 @@ public class UrlController {
     }
 
     //pehle mai backend ka url ak expose kr rahe tha , one of main concern.
-<<<<<<< Updated upstream
+// <<<<<<< Updated upstream
 //     @GetMapping("/show/{code}")
 //     public RedirectView display(@PathVariable String code, HttpServletResponse res) throws Exception
 //     {
@@ -57,7 +57,7 @@ public class UrlController {
 
 //         return new RedirectView(url);
 //     }
-=======
+// =======
 //    @GetMapping("/show/{code}")
 //    public RedirectView display(@PathVariable String code, HttpServletResponse res) throws Exception
 //    {
@@ -71,7 +71,7 @@ public class UrlController {
 //        return new RedirectView(url);
 //    }
 
->>>>>>> Stashed changes
+// >>>>>>> Stashed changes
     @GetMapping("/show/{code}")
     public ResponseEntity<String> display(@PathVariable String code) {
         String url = u_service.provideUrl(code);
