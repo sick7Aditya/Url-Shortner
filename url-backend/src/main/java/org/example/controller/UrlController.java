@@ -46,6 +46,8 @@ public class UrlController {
     }
 
 
+
+    //pehle mai backend ka url ak expose kr rahe tha , one of main concern.
     @GetMapping("/show/{code}")
     public RedirectView display(@PathVariable String code, HttpServletResponse res) throws Exception
     {

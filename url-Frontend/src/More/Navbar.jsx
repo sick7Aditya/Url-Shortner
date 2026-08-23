@@ -1,9 +1,7 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function Navbar() {
-
   const navigate = useNavigate();
 
   function Logout() {
@@ -12,50 +10,58 @@ function Navbar() {
   }
 
   return (
-    <header style={styles.header}>
-      <nav style={styles.nav}>
-        <Link to="/Home" style={styles.link}>Home</Link>
-        <Link to="/About" style={styles.link}>About</Link>
-        <Link to="/Profile" style={styles.link}>Profile</Link>
+    <header
+      style={{
+        backgroundColor: "#ffffff",
+        borderBottom: "1px solid #A8A492",
+        padding: "14px 32px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+      <nav style={{ display: "flex", gap: "28px" }}>
+        {["Home", "About", "Profile"].map((page) => (
+          <Link
+            key={page}
+            to={`/${page}`}
+            style={{ color: "#A8A492", textDecoration: "none", fontSize: "0.9rem", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase" }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#524646")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "#A8A492")}
+          >
+            {page}
+          </Link>
+        ))}
       </nav>
 
-      <button style={styles.logoutBtn} onClick={Logout}>
+      <button
+        onClick={Logout}
+        style={{
+          backgroundColor: "transparent",
+          color: "#EC5B38",
+          border: "1px solid #EC5B38",
+          padding: "8px 18px",
+          borderRadius: "10px",
+          fontSize: "0.85rem",
+          fontWeight: 600,
+          cursor: "pointer",
+          letterSpacing: "1px",
+          textTransform: "uppercase",
+          transition: "all 0.2s",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.backgroundColor = "#EC5B38";
+          e.currentTarget.style.color = "#ffffff";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.backgroundColor = "transparent";
+          e.currentTarget.style.color = "#EC5B38";
+        }}
+      >
         Logout
       </button>
     </header>
-  )
+  );
 }
 
-const styles = {
-  header: {
-    backgroundColor: '#0f172a',
-    borderBottom: '1px solid #334155',
-    padding: '16px 24px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
-  },
-  nav: {
-    display: 'flex',
-    gap: '24px',
-  },
-  link: {
-    color: '#cbd5e1',
-    textDecoration: 'none',
-    fontWeight: 500,
-    fontSize: '0.95rem',
-  },
-  logoutBtn: {
-    backgroundColor: '#ef4444',
-    color: '#ffffff',
-    border: 'none',
-    padding: '8px 16px',
-    borderRadius: '8px',
-    fontSize: '0.9rem',
-    fontWeight: 600,
-    cursor: 'pointer',
-  },
-}
-
-export default Navbar
+export default Navbar;

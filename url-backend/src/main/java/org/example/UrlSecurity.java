@@ -30,8 +30,8 @@ public class UrlSecurity {
                 .sessionManagement(session->session
                         .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/SignUp", "/api/Otp", "/api/Login", "/api/show/**" ).permitAll()
-                        .requestMatchers("/actuator/health").permitAll()
+                        .requestMatchers("/api/SignUp", "/api/Otp", "/api/Login", "/api/show/**" ,"/api/start").permitAll()
+                        .requestMatchers("/actuator/health","/api/show/**").permitAll()
                         .anyRequest().authenticated()    // add krne waali kr di authenticated.
                 );
         return http.build();

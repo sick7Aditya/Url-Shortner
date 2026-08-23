@@ -1,91 +1,80 @@
 import React from 'react'
 import Navbar from './Navbar'
 
-
 function About() {
   return (
     <>
-    <Navbar></Navbar>
-    <div style={styles.container}>
-      <div style={styles.card}>
-        <h1 style={styles.heading}>👋 Hello, everyone (or anyone)!</h1>
+      <Navbar />
+      <div
+        className="min-h-screen w-full flex items-center justify-center px-4 py-12"
+        style={{ backgroundColor: "#FCF2E5" }}
+      >
+        <div
+          className="w-full max-w-xl rounded-3xl p-8 sm:p-10"
+          style={{
+            backgroundColor: "#ffffff",
+            border: "1px solid #A8A492",
+            boxShadow: "0 18px 45px rgba(82, 70, 70, 0.10)",
+          }}
+        >
+          <p
+            className="text-xs font-semibold tracking-[3px] uppercase mb-2"
+            style={{ color: "#A8A492" }}
+          >
+            URL Shortener
+          </p>
 
-        <p style={styles.text}>
-          I'm <span style={styles.highlight}>Ace</span> — the creator of this.
-        </p>
+          <h1
+            className="text-3xl sm:text-4xl font-semibold leading-tight mb-6"
+            style={{ color: "#524646" }}
+          >
+            Hey, everyone 👋
+          </h1>
 
-        <p style={styles.text}>
-          Don't worry about your credentials — since you're already logged into
-          the website, they're already cooked :3
-        </p>
+          <p className="text-sm mb-4" style={{ color: "#524646" }}>
+            I'm <span style={{ color: "#EC5B38", fontWeight: 600 }}>Ace</span> — the creator of this.
+          </p>
 
-        <p style={styles.text}>
-          But jokes aside — if you're a business, or just someone who needs a
-          reliable URL shortener, <strong style={styles.bold}>please don't use this website.</strong>{' '}
-          Your shortened URL will only stay valid for about 5 hours, after
-          which the database gets refreshed and all stored URLs are deleted.
-        </p>
+          <p className="text-sm mb-4" style={{ color: "#524646" }}>
+            Don't worry about your credentials — since you're already logged in,
+            they're already cooked :3
+          </p>
 
-        <p style={styles.text}>
-          This was a <span style={styles.highlight}>side project</span>, not a
-          service. (I don't have the money to store URLs forever — I need to
-          save resources for other projects too, TvT.)
-        </p>
+          <p className="text-sm mb-4" style={{ color: "#524646" }}>
+            But jokes aside — if you're a business or someone who needs a reliable
+            URL shortener,{" "}
+            <strong style={{ color: "#EC5B38" }}>please don't use this website.</strong>{" "}
+            Your shortened URL will only stay valid for about 5 hours, after which
+            the database gets refreshed and all stored URLs are deleted.
+          </p>
 
-        <p style={styles.text}>Anyway, run along now.</p>
+          <p className="text-sm mb-4" style={{ color: "#524646" }}>
+            This was a{" "}
+            <span style={{ color: "#EC5B38", fontWeight: 600 }}>side project</span>,
+            not a service. (I don't have the money to store URLs forever — I need to
+            save resources for other projects too, TvT.)
+          </p>
 
-        <p style={styles.footerNote}>
-          I don't delete your account credentials — but I do delete your
-          URLs. Yeah, I'm the bad guy 😘.
-        </p>
+          <p className="text-sm mb-6" style={{ color: "#524646" }}>
+            Anyway, run along now.
+          </p>
+
+          <div
+            className="rounded-2xl px-4 py-3 text-xs"
+            style={{
+              backgroundColor: "#FCF2E5",
+              border: "1px solid #A8A492",
+              color: "#A8A492",
+              fontStyle: "italic",
+            }}
+          >
+            I don't delete your account credentials — but I do delete your URLs.
+            Yeah, I'm the bad guy 😘
+          </div>
+        </div>
       </div>
-    </div>
     </>
-  )
+  );
 }
 
-const styles = {
-  container: {
-    minHeight: '100vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    background: 'linear-gradient(135deg, #1e1e2f, #2a2a40)',
-    padding: '20px',
-    fontFamily: "'Segoe UI', sans-serif",
-  },
-  card: {
-    maxWidth: '600px',
-    background: '#2c2c3e',
-    borderRadius: '16px',
-    padding: '32px',
-    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4)',
-    color: '#e0e0e0',
-    lineHeight: 1.6,
-  },
-  heading: {
-    fontSize: '1.8rem',
-    marginBottom: '16px',
-    color: '#ffffff',
-  },
-  text: {
-    fontSize: '1rem',
-    marginBottom: '14px',
-    color: '#cfcfcf',
-  },
-  highlight: {
-    color: '#7f9cf5',
-    fontWeight: 600,
-  },
-  bold: {
-    color: '#ffffff',
-  },
-  footerNote: {
-    fontSize: '0.9rem',
-    marginTop: '20px',
-    color: '#888',
-    fontStyle: 'italic',
-  },
-}
-
-export default About
+export default About;

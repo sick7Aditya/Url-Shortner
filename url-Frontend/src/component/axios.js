@@ -1,10 +1,17 @@
 import axios from "axios";
+// import axios from "../../node_modules/axios/index.js";
 
 const Backend = axios.create({
-    baseURL: "https://url-shortener-server-h5gn.onrender.com",
+    baseURL: `${import.meta.env.VITE_API_BASE_URL}`,
+    
     withCredentials: true
 });
 
+export function start()
+{
+    return Backend.get("/start")
+}
+ 
 export function PostMapping(url)
 {
     return Backend.post("/api/add",{
@@ -15,6 +22,13 @@ export function PostMapping(url)
 export function traverseUsingCode(code)
 {
     Backend.get("/api/show/code");
+}
+
+
+// this one is new endpoint in frontend , which is going to map the small url + code to the backend then backend redirects right :3
+export function toUrl(code)
+{
+    Backend.get("/api/url/code");
 }
 
 export function MyAllUrls()
