@@ -48,17 +48,25 @@ public class UrlController {
 
 
     //pehle mai backend ka url ak expose kr rahe tha , one of main concern.
-    @GetMapping("/show/{code}")
-    public RedirectView display(@PathVariable String code, HttpServletResponse res) throws Exception
-    {
-        String url = u_service.provideUrl(code);
-        if(url.equals("fails"))
-        {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "URL not found");
-//            return "the code you shared is fake one";
-        }
+//     @GetMapping("/show/{code}")
+//     public RedirectView display(@PathVariable String code, HttpServletResponse res) throws Exception
+//     {
+//         String url = u_service.provideUrl(code);
+//         if(url.equals("fails"))
+//         {
+//             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "URL not found");
+// //            return "the code you shared is fake one";
+//         }
 
-        return new RedirectView(url);
+//         return new RedirectView(url);
+//     }
+    @GetMapping("/show/{code}")
+    public ResponseEntity<String> display(@PathVariable String code) {
+        String url = u_service.provideUrl(code);
+        if (url.equals("fails")) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "URL not found");
+        }
+        return ResponseEntity.ok(url); // just return the URL string
     }
 
 
