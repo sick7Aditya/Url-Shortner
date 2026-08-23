@@ -30,13 +30,13 @@ function Traverse() {
     fetch(`${import.meta.env.VITE_API_BASE_URL}/api/show/${code}`)
       .then(res => {
         if (!res.ok) throw new Error("Not found");
-        return res.json(); // or res.text()
+        return res.text(); // ← this is the fix
       })
       .then(url => {
         window.location.href = url;
       })
       .catch(() => {
-        window.location.href = "/404"; // or show error
+        window.location.href = "/404";
       });
   }, [code]);
 
