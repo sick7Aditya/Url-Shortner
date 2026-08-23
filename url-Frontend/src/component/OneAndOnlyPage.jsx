@@ -20,7 +20,7 @@ function OneAndOnlyPage() {
       setDisplay("Wrong credential error. Please login again.");
       setIsError(true);
     } else {
-      setDisplay(`${import.meta.env.app}/u` + r.data);
+      setDisplay("https://url-shortly-ten.vercel.app/u/" + r.data);
     }
   }
 

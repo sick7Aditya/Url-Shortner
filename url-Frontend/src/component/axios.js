@@ -9,7 +9,7 @@ const Backend = axios.create({
 
 export function start()
 {
-    return Backend.get("/start")
+    return Backend.get("/api/start")
 }
  
 export function PostMapping(url)

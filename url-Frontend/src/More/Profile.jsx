@@ -67,7 +67,7 @@ function Profile() {
         {!loading && !error && (
           <div className="max-w-xl mx-auto flex flex-col gap-4">
             {urls.map((url) => {
-              const shortUrl = `https://url-shortener-server-h5gn.onrender.com/api/show/${url.smallHashCode}`;
+              const shortUrl = `https://url-shortly-ten.vercel.app/u/${url.smallHashCode}`;~
               const id = url.id || url._id;
               return (
                 <div

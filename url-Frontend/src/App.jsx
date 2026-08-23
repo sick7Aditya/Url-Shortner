@@ -28,7 +28,7 @@ function Traverse() {
 
   useEffect(() => {
     // Let the browser handle the redirect natively — no fetch, no CORS issue
-    window.location.href = `http://localhost:8080/api/show/${code}`;
+    window.location.href = `${import.meta.env.VITE_API_BASE_URL}/api/show/${code}`;
   }, [code]);
 
   return (
